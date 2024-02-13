@@ -3,11 +3,11 @@ import axios from "axios";
 
 async function getToken() {
   try {
-    const clientId = core.getInput("client_id", { required: true });
-    const clientSecret = core.getInput("client_secret", {
+    const clientId = core.getInput("client-id", { required: true });
+    const clientSecret = core.getInput("client-secret", {
       required: true,
     });
-    const foundryUrl = core.getInput("foundry_url", {
+    const foundryUrl = core.getInput("foundry-url", {
       required: true,
     });
     const scope = core.getInput("scope", { required: true });
@@ -30,7 +30,7 @@ async function getToken() {
 
     const token = response.data.access_token;
     core.setSecret(token); // Masks the token in the logs
-    core.setOutput("access_token", token);
+    core.setOutput("access-token", token);
     core.exportVariable("FOUNDRY_ACCESS_TOKEN", token);
   } catch (error) {
     core.setFailed(`🔒 Failed to get token: ${error.message}`);
