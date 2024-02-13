@@ -1,0 +1,22 @@
+name: "Auth to Palantir Foundry"
+description: "Get an access token from Palantir Foundry as a third-party application."
+inputs:
+  client_id:
+    description: "The client ID for the Palantir Foundry instance"
+    required: true
+  client_secret:
+    description: "The client secret for the Palantir Foundry instance"
+    required: true
+  foundry_url:
+    description: "The URL of the Palantir Foundry instance"
+    required: true
+  scope:
+    description: "Space delimited list of scopes for the token, defaults to api:read-data. See https://www.palantir.com/docs/foundry/api/general/overview/introduction/ for more information on the scope you need."
+    required: false
+    default: "api:read-data"
+outputs:
+  access_token:
+    description: "The access token for the Palantir Foundry instance"
+runs:
+  using: "node20"
+  main: "dist/index.js"
