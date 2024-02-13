@@ -27052,11 +27052,11 @@ const axios_1 = __nccwpck_require__(8757);
 function getToken() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const clientId = core.getInput("client_id", { required: true });
-            const clientSecret = core.getInput("client_secret", {
+            const clientId = core.getInput("client-id", { required: true });
+            const clientSecret = core.getInput("client-secret", {
                 required: true,
             });
-            const foundryUrl = core.getInput("foundry_url", {
+            const foundryUrl = core.getInput("foundry-url", {
                 required: true,
             });
             const scope = core.getInput("scope", { required: true });
@@ -27074,7 +27074,7 @@ function getToken() {
             core.info(`✅ Token received for ${foundryUrl}`);
             const token = response.data.access_token;
             core.setSecret(token); // Masks the token in the logs
-            core.setOutput("access_token", token);
+            core.setOutput("access-token", token);
             core.exportVariable("FOUNDRY_ACCESS_TOKEN", token);
         }
         catch (error) {
